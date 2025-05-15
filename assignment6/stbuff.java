@@ -43,6 +43,9 @@ public class stbuff
 		//setlength
 		sb.setLength(5);
 		System.out.println("after setlength "+sb);
+
+		//capacity
+		System.out.println(sb.capacity());
 	}
 }
 
@@ -56,4 +59,5 @@ charat l
 setchar Hexlo! all!!
 12
 after deleteatchar Helo! all!!
-after setlength Helo!*/
+after setlength Helo!
+21*/
