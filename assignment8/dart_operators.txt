@@ -1,0 +1,72 @@
+void main()
+{
+  int x=10;
+  int y=20;
+  print("Arithmetic operations");
+  print("addition of ${x} and ${y} is ${x+y}");
+  print("subtraction of ${x} and ${y} is ${x-y}");
+  print("multiplication of ${x} and ${y} is ${x*y}");
+  print("division of ${x} and ${y} is ${x/y}");
+  print("integer division of ${x} and ${y} is ${x~/y}");
+  print("modulous of ${x} and ${y} is ${x%y}");
+  
+  print("");
+  print("Relational operations");
+  print(x<y);
+  print(x>y);
+  print(x<=y);
+  print(x>=y);
+  print(x==y);
+  print(x!=y);
+  
+  print("");
+  print("logical operations");
+  print((x<y)&&(x!=y));
+  print((x>y)&&(x==y));
+  print((x<y)||(x==y));
+  print(!(x==y));
+  
+  print("");
+  print("type test operations");
+  String a = 'GFG';
+  double b = 3.3;
+  print(a is String);
+  print(b is !int);
+  
+  print("");
+  print("as Operator");
+  dynamic value = "Hello";
+  String str= value as String;
+  print(str);
+  
+  var ob='xyz';
+  print(ob.runtimeType);
+  String s=ob as String;
+  print(s.runtimeType);
+  print(s);
+  
+  Object n=45;
+  int a1=n as int;
+  print(a1);
+  
+  print("");
+  print("asssignment operator");
+  int x1=10;
+  print(x1+=2);
+  print(x1-=2);
+  print(x1*=2);
+  print(x1~/=2);
+  print(x1%=2);
+  
+  print("");
+  print("pefix and postfix");
+  int m=5;
+  int n1=++m;
+  print("${n1}");
+  n1=m--;
+  print("${m}");
+  
+  
+  
+  
+}
