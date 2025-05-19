@@ -1,0 +1,47 @@
+void main() {
+  int x = 10;
+  print(x);
+  print(x.runtimeType);
+
+  String s = "hello";
+  print(s);
+  print(s.runtimeType);
+
+  var x1 = 50;
+  print(x1);
+  print(x1.runtimeType);
+
+  var s1 = "welcome";
+  print(s1);
+  print(s1.runtimeType);
+
+  dynamic d = 10;
+  print(d);
+  print(d.runtimeType);
+  d = "dart";
+  print(d);
+  print(d.runtimeType);
+  d = 54.879;
+  print(d);
+  print(d.runtimeType);
+
+  num a = 89;
+  print(a);
+  print(a.runtimeType);
+  num b = 678.85;
+  print(b);
+  print(b.runtimeType);
+
+  print(b.isNegative);
+  print(b.hashCode);
+  print(b.isFinite);
+  print(b.isInfinite);
+  print(b.isNaN);
+  print(b.sign);
+  print(b.abs());
+  print(b.ceil());
+  print(b.ceilToDouble());
+  print(b.floor());
+  print(b.floorToDouble());
+  print(b.toString());
+}
