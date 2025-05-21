@@ -1,0 +1,32 @@
+void main() 
+{
+  var op=add(10,20);
+  print(op);
+  var op1=add1(40,70);
+  print(op1);
+  var op2=add2(90,10);
+  print(op2);
+  
+  //closure without variable
+  (x)
+  {
+    print(x.toUpperCase());
+  } ("welcome");
+}
+
+//normal function
+int add(int x,int y)
+{
+  return x+y;
+}
+
+//lambda
+var add1=(int x,int y)=> x+y;
+
+//closure
+var add2=(int x,int y)
+{
+  return x+y;
+};
+
+
