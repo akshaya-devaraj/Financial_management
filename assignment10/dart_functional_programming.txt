@@ -1,0 +1,76 @@
+void main() 
+{
+   String Person(String str)
+   {
+      return str;
+   }
+   var p=Person("Hi How are you");
+   print(p);
+  
+   //Dart functional programming
+   //passing function to variable that enables functioncall using variable
+
+   void add(int x,int y)
+   {
+     print(x+y);
+   }
+   var a=add;
+   a(10,40);
+  
+   String name(String str)
+   {
+     return str;
+   }
+   var s=name;
+   print(s("Dharshini"));
+  
+  
+  //pass function as an argument to another function
+   String upper(String str)
+   {
+     return str.toUpperCase();
+   }
+   String display(Function up,String str)
+   {
+     return up(str);
+   }
+   print(display(upper,"welcome"));
+  
+  
+   int sub(int x,int y)
+   {
+     return x-y;
+   }
+   int displaySub(Function sub,int x,int y)
+   {
+     return sub(x,y);
+   }
+   print(displaySub(sub,20,10));
+  
+  
+   //return function from another function
+   Function sample()
+   {
+     sample1()
+     {
+       print('Hello');
+     }
+     return sample1;
+   }
+   var s1=sample();
+   s1();
+    
+   Function multiplication(int x,int y)
+   {
+     int division(int x,int y)
+     {
+       return x%y;
+     }
+     int mul=x*y;
+     print(mul);
+     return division;
+   }
+   var m=multiplication(10,20);
+   var d=m(10,2);
+   print(d); 
+}
