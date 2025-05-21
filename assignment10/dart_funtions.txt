@@ -1,0 +1,46 @@
+void main() 
+{
+  //functions
+  //positional parameters
+  void person(String x, int y)
+  {
+    print("This method is to print the name of $x and his age $y");
+  }
+  person("Ram", 21);
+  
+  
+  //named parameters
+  void personNamed({String? x, int? y}) 
+  {
+    print("Hello ${x} aged ${y ?? 0} years old");
+  }
+  personNamed(x: 'Dharshini', y: 21); 
+  personNamed(y:21);
+  
+  
+  //named parameters with default values
+  void personNamedDefault({String x="Guest",int y=0})
+  {
+    print("Heloo $x with the age of $y");
+  }
+  personNamedDefault(x: 'Dharshini' ,y: 21);
+  personNamedDefault();
+  
+  
+  //named paramters with required values
+  void personNamedRequired({required String x,required int y})
+  {
+    print("This is the requirednamedparamater with the name $x and age $y");
+  }
+  personNamedRequired(x:'Dharshini',y:21);
+  //personNamedRequired(); --> This will show an error as the paraamters are required
+  
+  //optional positional parameters
+  void personOptional(String x, [int? y])
+  {
+    print("This is the optional positional parameters with name $x and age $y");
+  }
+  personOptional("Dharshini");
+  
+  
+}
