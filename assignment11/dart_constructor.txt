@@ -1,0 +1,19 @@
+class A {
+  int? _x;
+  int? _y;
+  A() {
+    print("Default constructor is called");
+  }
+  A.callme(int _x, int _y)
+  {
+    this._x = _x;
+    this._y = _y;
+    print("Named constructor is called");
+    print(_x + _y);
+  }
+}
+
+void main() {
+  A();
+  A.callme(10, 20);
+}
