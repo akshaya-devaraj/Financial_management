@@ -14,6 +14,7 @@ class Employee
     print("${this.name} aged ${this.empid} lives is ${this.city}");
   }
 }
+//CAN USE EXTENSION WITHOUT NAME BUT BETTER GO WITH NAME
 extension Sample on Employee
 {
   String greet(String str)
