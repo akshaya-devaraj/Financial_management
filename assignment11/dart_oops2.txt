@@ -1,0 +1,76 @@
+class Person
+{
+  String? _name;
+  int? _rll;
+  String? dept;
+  void setName(String name)
+  {
+    this._name=name;
+  }
+  void setRoll(int rll)
+  {
+    this._rll=rll;
+  }
+  void setDept(String dept)
+  {
+    this.dept=dept;
+  }
+  String? getName()
+  {
+    return _name;
+  }
+  int? getRoll()
+  {
+    return _rll;
+  }
+  String? getDept()
+  {
+    return dept;
+  }
+}
+
+//using arrow functions 
+class Employee
+{
+  String? _name;
+  int? _rll;
+  String? dept;
+  void setName(String name)
+  {
+    this._name=name;
+  }
+  void setRoll(int rll)
+  {
+    this._rll=rll;
+  }
+  void setDept(String dept)
+  {
+    this.dept=dept;
+  }
+  String? get getName=>_name;
+  int? get getRoll=>_rll;
+  String? get getDept=>dept;
+  
+  
+}
+void main() 
+{
+  Person p =Person();
+  p.setName("Dharshini");
+  p.setRoll(15);
+  p.setDept("CSE");
+  p._name="Dharshuuuu";
+  print(p.getName());
+  print(p.getRoll());
+  print(p.getDept());
+  
+  //using arrow functions
+  Employee e =Employee();
+  e.setName("Dharshini");
+  e.setRoll(15);
+  e.setDept("CSE");
+  e._name="Dharshuuuu";
+  print(e.getName);
+  print(e.getRoll);
+  print(e.getDept);
+}
