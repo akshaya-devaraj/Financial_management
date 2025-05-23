@@ -1,0 +1,73 @@
+// Base class
+class Person 
+{
+  String? name;
+  int? age;
+
+  Person(String name, int age) 
+  {
+    this.name = name;
+    this.age = age;
+  }
+
+  void displayPersonInfo() 
+  {
+    print('Name: $name');
+    print('Age: $age');
+  }
+}
+
+// Derived class from Person
+class Employee extends Person 
+{
+  String? employeeId;
+  String? department;
+
+  Employee(String name, int age, String employeeId, String department)
+      : super(name, age) 
+  {
+    this.employeeId = employeeId;
+    this.department = department;
+  }
+
+  void displayEmployeeInfo() 
+  {
+    displayPersonInfo();
+    print('Employee ID: $employeeId');
+    print('Department: $department');
+  }
+}
+
+// Derived class from Employee (Multilevel Inheritance)
+class Manager extends Employee 
+{
+  int? teamSize;
+
+  Manager({
+    required String name,
+    required int age,
+    required String employeeId,
+    required String department,
+    required int teamSize,
+  }) : super(name, age, employeeId, department) 
+  {
+    this.teamSize = teamSize;
+  }
+
+  void displayManagerInfo() {
+    displayEmployeeInfo();
+    print('Team Size: $teamSize');
+  }
+}
+
+// Main function to run the program
+void main() {
+  Manager manager = Manager(
+    name: "Dharshini",
+    age: 21,
+    employeeId: "123",
+    department: "Intern",
+    teamSize: 14,
+  );
+  manager.displayManagerInfo();
+}
