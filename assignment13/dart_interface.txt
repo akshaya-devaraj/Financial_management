@@ -1,0 +1,45 @@
+// Abstract class
+abstract class Vehicle 
+{
+  String startEngine();
+  void draw(){}
+}
+
+// Car class extending Vehicle
+class Car implements Vehicle 
+{
+  String brand;
+  Car(this.brand);
+
+  @override
+  String startEngine() {
+    return "Car $brand's engine started.";
+  }
+  
+  @override
+  void draw()
+  {
+    print("concrete method need to implemented in interface");
+  }
+}
+
+// Bike class extending Vehicle
+class Bike extends Vehicle 
+{
+  String brand;
+  Bike(this.brand);
+
+  @override
+  String startEngine() {
+    return "Bike $brand's engine started.";
+  }
+}
+
+void main() {
+  Car car = Car("Toyota");
+  Bike bike = Bike("Yamaha");
+
+  print(car.startEngine());   
+  car.draw();
+  print(bike.startEngine());  
+}
