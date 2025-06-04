@@ -15,7 +15,9 @@ class MySizedBoxDemo extends StatelessWidget {
         appBar: AppBar(title: Text("SizedBox Variations")),
         body: Padding(
           padding:  EdgeInsets.all(16.0),
-          child: ListView(
+          child: Column(
+           // physics: BouncingScrollPhysics(),
+           // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Standard SizedBox (spacing)
                Text("1. SizedBox (Vertical Space)", style: TextStyle(fontWeight: FontWeight.bold)),
@@ -28,7 +30,7 @@ class MySizedBoxDemo extends StatelessWidget {
                Text("2. SizedBox.fromSize", style: TextStyle(fontWeight: FontWeight.bold)),
                SizedBox(height: 10),
               SizedBox.fromSize(
-                size:  Size(120, 60),
+                size:  Size(100, 50),
                 child: ElevatedButton(
                   onPressed: () {},
                   child:  Text("fromSize"),
