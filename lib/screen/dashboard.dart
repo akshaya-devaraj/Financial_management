@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 void main() {
-  runApp(const DashboardApp(userName: 'Akshaya'));
+  runApp(const DashboardApp(userName: ''));
 }
 
 class DashboardApp extends StatelessWidget {
@@ -218,6 +218,12 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
   final List<String> _accountTypes = ['Cash', 'Bank', 'Credit'];
   final List<String> _transactionTypes = ['Income', 'Expense'];
 
+  List<String> _getCategoriesForType(String type) {
+    return type == 'Income'
+        ? ['Salary', 'Freelance', 'Investments', 'Interest', 'Refunds', 'Other']
+        : ['Food', 'Transport', 'Utilities', 'Entertainment', 'Healthcare', 'Shopping', 'Rent', 'Education', 'Other'];
+  }
+
   void _pickDate() async {
     final picked = await showDatePicker(
       context: context,
@@ -225,7 +231,6 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
       firstDate: DateTime(2020),
       lastDate: DateTime(2100),
     );
-
     if (picked != null) {
       setState(() {
         _selectedDate = picked;
@@ -269,7 +274,10 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                 Expanded(
                   child: DropdownButtonFormField<String>(
                     value: _type,
-                    onChanged: (value) => setState(() => _type = value!),
+                    onChanged: (value) => setState(() {
+                      _type = value!;
+                      _categoryController.clear();
+                    }),
                     items: _transactionTypes.map((type) {
                       return DropdownMenuItem(value: type, child: Text(type));
                     }).toList(),
@@ -289,10 +297,19 @@ class _AddTransactionFormState extends State<AddTransactionForm> {
                 ),
               ]),
               const SizedBox(height: 10),
-              TextFormField(
-                controller: _categoryController,
+              DropdownButtonFormField<String>(
+                value: _categoryController.text.isNotEmpty ? _categoryController.text : null,
+                items: _getCategoriesForType(_type)
+                    .map((category) => DropdownMenuItem(
+                  value: category,
+                  child: Text(category),
+                ))
+                    .toList(),
+                onChanged: (value) => setState(() {
+                  _categoryController.text = value!;
+                }),
                 decoration: const InputDecoration(labelText: 'Category'),
-                validator: (value) => value == null || value.isEmpty ? 'Enter category' : null,
+                validator: (value) => value == null || value.isEmpty ? 'Select category' : null,
               ),
               const SizedBox(height: 10),
               TextFormField(
