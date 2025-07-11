@@ -1,9 +1,12 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fm/bloc/logic_bloc.dart';
+import 'package:fm/screen/login_screen.dart';
 import 'package:intl/intl.dart';
 
 void main() {
-  runApp(const DashboardApp(userName: ''));
+  runApp(const DashboardApp(userName: 'Akshaya'));
 }
 
 class DashboardApp extends StatelessWidget {
@@ -65,6 +68,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
         backgroundColor: Theme.of(context).primaryColor,
         title: Text("Welcome ${widget.userName}"),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: 'Logout',
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute( builder: (_) => BlocProvider<LoginBloc>(
+                  create: (context) => LoginBloc(),
+                  child: const Login(),
+                ),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -361,4 +379,26 @@ class Transaction {
     required this.amount,
     required this.date,
   });
+}
+
+class LogoutPage extends StatelessWidget {
+  const LogoutPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Logged Out")),
+      body: Center(
+        child: ElevatedButton(
+          child: const Text("Login Again"),
+          onPressed: () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (_) => const DashboardApp(userName: 'Akshaya')),
+            );
+          },
+        ),
+      ),
+    );
+  }
 }
